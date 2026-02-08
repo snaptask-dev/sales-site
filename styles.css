@@ -515,7 +515,7 @@ a {
 }
 
 .trust-logo-img {
-  height: 30px;
+  height: 44px;
   width: auto;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
@@ -528,7 +528,8 @@ a {
 .section {
   padding: var(--section-padding);
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 .section-light {
   background: var(--color-off-white);
@@ -1178,7 +1179,7 @@ a {
     gap: 32px;
   }
   .trust-logo-img {
-    height: 24px;
+    height: 36px;
   }
 
   /* Team */
