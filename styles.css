@@ -152,22 +152,7 @@ a {
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.25s ease;
   white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.btn:hover::after {
-  opacity: 1;
 }
 
 .btn-primary {
@@ -179,8 +164,6 @@ a {
 .btn-primary:hover {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35);
-  transform: translateY(-1px);
 }
 
 .btn-accent {
@@ -192,8 +175,6 @@ a {
 .btn-accent:hover {
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
-  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
-  transform: translateY(-1px);
 }
 
 .btn-outline {
@@ -204,9 +185,7 @@ a {
 .btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  transform: translateY(-1px);
 }
-.btn-outline::after { display: none; }
 
 .btn-sm {
   padding: 10px 20px;
@@ -507,10 +486,6 @@ a {
 .trust-logo-link {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
-}
-.trust-logo-link:hover {
-  transform: scale(1.04);
 }
 
 .trust-logo-img {
@@ -613,11 +588,6 @@ a {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-gray-100);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
-}
-.team-card:hover {
-  box-shadow: 0 12px 40px rgba(29, 78, 216, 0.08);
-  transform: translateY(-4px);
 }
 
 .team-photo-placeholder {
@@ -644,10 +614,6 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.4s ease;
-}
-.team-card:hover .team-photo img {
-  transform: scale(1.03);
 }
 
 .team-name {
@@ -685,12 +651,10 @@ a {
   justify-content: center;
   border-radius: 50%;
   color: var(--color-gray-400);
-  transition: all 0.25s ease;
 }
 .social-icon:hover {
   color: var(--color-primary);
   background: var(--color-primary-light);
-  transform: translateY(-2px);
 }
 
 
@@ -755,13 +719,6 @@ a {
   border-radius: 50%;
   background: var(--color-primary-light);
   color: var(--color-primary);
-  transition: all 0.3s ease;
-}
-
-.process-step:hover .step-icon {
-  background: var(--color-primary);
-  color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
 }
 
 .step-content h3 {
@@ -824,12 +781,6 @@ a {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
-}
-.case-card:hover {
-  box-shadow: 0 12px 40px rgba(29, 78, 216, 0.08);
-  transform: translateY(-4px);
-  border-color: var(--color-primary-light);
 }
 
 .case-card-header {
@@ -915,14 +866,12 @@ a {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-primary);
-  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 .case-link:hover {
   color: var(--color-primary-dark);
-  gap: 8px;
 }
 
 
@@ -1106,13 +1055,7 @@ a {
     --section-padding: 64px 0;
   }
 
-  /* Ensure cards don't block vertical scrolling */
-  .team-card,
-  .case-card,
-  .process-step,
-  .cs-approach-card {
-    touch-action: pan-y;
-  }
+
 
   /* Show hamburger, hide desktop links */
   .mobile-menu-btn {
@@ -1238,34 +1181,6 @@ a {
     text-align: center;
   }
 
-  /* Disable ALL hover/transform effects on touch — they block scrolling */
-  .team-card,
-  .case-card,
-  .social-icon,
-  .trust-logo-link,
-  .process-step,
-  .step-icon,
-  .team-photo img,
-  .btn,
-  .case-link,
-  .cs-approach-card {
-    transition: none !important;
-    transform: none !important;
-  }
-  .team-card:hover,
-  .case-card:hover,
-  .cs-approach-card:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-  .team-card:hover .team-photo img {
-    transform: none !important;
-  }
-  .process-step:hover .step-icon {
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-    box-shadow: none !important;
-  }
   .section-decor {
     display: none;
   }
