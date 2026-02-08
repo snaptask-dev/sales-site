@@ -51,7 +51,6 @@
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
-  overflow-x: hidden;
 }
 
 body {
@@ -528,8 +527,6 @@ a {
 .section {
   padding: var(--section-padding);
   position: relative;
-  overflow-x: clip;
-  overflow-y: visible;
 }
 .section-light {
   background: var(--color-off-white);
@@ -937,7 +934,6 @@ a {
   background: var(--color-white);
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 /* Decorative for CTA */
@@ -1108,11 +1104,6 @@ a {
 @media (max-width: 768px) {
   :root {
     --section-padding: 64px 0;
-  }
-
-  /* Smooth touch scrolling */
-  body {
-    -webkit-overflow-scrolling: touch;
   }
 
   /* Ensure cards don't block vertical scrolling */
