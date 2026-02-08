@@ -1115,6 +1115,14 @@ a {
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Ensure cards don't block vertical scrolling */
+  .team-card,
+  .case-card,
+  .process-step,
+  .cs-approach-card {
+    touch-action: pan-y;
+  }
+
   /* Show hamburger, hide desktop links */
   .mobile-menu-btn {
     display: flex;
@@ -1239,49 +1247,36 @@ a {
     text-align: center;
   }
 
-  /* Reduce decorations on mobile */
-  .section-decor {
-    display: none;
+  /* Disable ALL hover/transform effects on touch — they block scrolling */
+  .team-card,
+  .case-card,
+  .social-icon,
+  .trust-logo-link,
+  .process-step,
+  .step-icon,
+  .team-photo img,
+  .btn,
+  .case-link,
+  .cs-approach-card {
+    transition: none !important;
+    transform: none !important;
   }
-
-  /* Disable hover transforms on touch devices — they block scrolling */
-  .btn:hover,
-  .btn-primary:hover,
-  .btn-accent:hover,
-  .btn-outline:hover {
-    transform: none;
-  }
-  .team-card {
-    transition: none;
-  }
-  .team-card:hover {
-    transform: none;
-    box-shadow: none;
+  .team-card:hover,
+  .case-card:hover,
+  .cs-approach-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
   .team-card:hover .team-photo img {
-    transform: none;
-  }
-  .case-card {
-    transition: none;
-  }
-  .case-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-  .social-icon:hover {
-    transform: none;
-  }
-  .trust-logo-link:hover {
-    transform: none;
+    transform: none !important;
   }
   .process-step:hover .step-icon {
     background: var(--color-primary-light);
     color: var(--color-primary);
-    box-shadow: none;
+    box-shadow: none !important;
   }
-  .cs-approach-card:hover {
-    transform: none;
-    box-shadow: none;
+  .section-decor {
+    display: none;
   }
 }
 
