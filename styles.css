@@ -1110,6 +1110,11 @@ a {
     --section-padding: 64px 0;
   }
 
+  /* Smooth touch scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
   /* Show hamburger, hide desktop links */
   .mobile-menu-btn {
     display: flex;
@@ -1237,6 +1242,46 @@ a {
   /* Reduce decorations on mobile */
   .section-decor {
     display: none;
+  }
+
+  /* Disable hover transforms on touch devices — they block scrolling */
+  .btn:hover,
+  .btn-primary:hover,
+  .btn-accent:hover,
+  .btn-outline:hover {
+    transform: none;
+  }
+  .team-card {
+    transition: none;
+  }
+  .team-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .team-card:hover .team-photo img {
+    transform: none;
+  }
+  .case-card {
+    transition: none;
+  }
+  .case-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .social-icon:hover {
+    transform: none;
+  }
+  .trust-logo-link:hover {
+    transform: none;
+  }
+  .process-step:hover .step-icon {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    box-shadow: none;
+  }
+  .cs-approach-card:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 
