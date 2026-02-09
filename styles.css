@@ -25,7 +25,7 @@
   --color-gray-900: #0F172A;
 
   /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-base: 16px;
 
   /* Spacing */
@@ -51,6 +51,7 @@
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
+  overflow-x: clip;
 }
 
 body {
@@ -59,7 +60,8 @@ body {
   background: var(--color-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
+  padding-top: 72px;
 }
 
 img {
@@ -153,6 +155,7 @@ a {
   border: 2px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .btn-primary {
@@ -197,12 +200,17 @@ a {
    NAVBAR
    ============================================ */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  background: var(--color-white);
   border-bottom: 1px solid var(--color-gray-100);
+  transition: transform 0.3s ease;
+}
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-inner {
@@ -220,6 +228,7 @@ a {
   height: 32px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 .logo-text {
   font-size: 1.25rem;
@@ -394,6 +403,12 @@ a {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero-or {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gray-400);
 }
 
 .hero-highlight {
@@ -604,7 +619,7 @@ a {
 
 .team-photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-md);
   overflow: hidden;
   margin-bottom: 24px;
@@ -613,7 +628,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
 }
 
 .team-name {
@@ -672,7 +687,7 @@ a {
 
 .process-left {
   position: sticky;
-  top: 120px;
+  top: 96px;
 }
 .process-left .section-title {
   margin-bottom: 24px;
@@ -695,7 +710,8 @@ a {
 .process-step:first-child {
   padding-top: 0;
 }
-.process-step:last-child {
+.process-step:last-child,
+.process-step:has(+ .process-guarantee-divider) {
   border-bottom: none;
 }
 
@@ -762,116 +778,187 @@ a {
   line-height: 1.65;
 }
 
+/* Money-back guarantee divider between steps */
+.process-guarantee-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.guarantee-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.25;
+}
+
+.guarantee-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
 
 /* ============================================
-   CASE STUDIES
+   CASE STUDIES — V2
    ============================================ */
-.case-studies-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+.cs-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
   position: relative;
   z-index: 1;
 }
 
-.case-card {
+.cs-header .section-title {
+  margin-bottom: 12px;
+}
+
+.cs-header .section-subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.case-studies-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.case-card-v2 {
+  display: flex;
   background: var(--color-white);
   border: 1px solid var(--color-gray-100);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+  position: relative;
+}
+.case-card-v2:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1), 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.case-card-v2-accent {
+  width: 6px;
+  min-width: 6px;
+  background: var(--card-accent, var(--color-primary));
+  flex-shrink: 0;
+}
+
+.case-card-v2-inner {
+  padding: 36px 40px;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
-.case-card-header {
+.case-card-v2-top {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.case-logo-placeholder {
-  width: 32px;
-  height: 32px;
-  background: var(--color-gray-900);
-  color: var(--color-white);
-  border-radius: var(--radius-sm);
+.case-card-v2-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.case-logo-img {
-  height: 24px;
+.case-logo-img-v2 {
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
 
-.case-company {
+.case-card-v2-tag {
+  font-size: 0.7rem;
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-gray-900);
-}
-
-.case-quote {
-  font-size: 0.95rem;
-  color: var(--color-gray-600);
-  line-height: 1.7;
-  font-style: italic;
-  border: none;
-  margin: 0 0 24px;
-  padding: 0;
-  flex-grow: 1;
-  position: relative;
-}
-.case-quote::before {
-  content: '\201C';
-  position: absolute;
-  top: -8px;
-  left: -4px;
-  font-size: 2.5rem;
-  color: var(--color-primary-light);
-  font-style: normal;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.case-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.case-author-avatar {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent-light));
-}
-
-.case-author-name {
-  font-weight: 600;
-  font-size: 0.875rem;
-  color: var(--color-gray-900);
-}
-
-.case-author-role {
-  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--color-gray-400);
+  padding: 4px 12px;
+  border: 1px solid var(--color-gray-100);
+  border-radius: 100px;
 }
 
-.case-link {
+.case-card-v2-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--color-gray-900);
+}
+
+.case-card-v2-desc {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: var(--color-gray-600);
+  max-width: 640px;
+}
+
+.case-card-v2-metrics {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 20px 0 4px;
+  border-top: 1px solid var(--color-gray-100);
+  margin-top: 4px;
+}
+
+.case-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.case-metric-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  letter-spacing: -0.01em;
+}
+
+.case-metric-label {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+  font-weight: 500;
+}
+
+.case-metric-divider {
+  width: 1px;
+  background: var(--color-gray-100);
+  margin: 0 24px;
+  align-self: stretch;
+}
+
+.case-card-v2-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-primary);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  margin-top: 4px;
+  transition: gap 0.25s ease;
 }
-.case-link:hover {
-  color: var(--color-primary-dark);
+.case-card-v2:hover .case-card-v2-cta {
+  gap: 12px;
 }
 
 
@@ -1055,8 +1142,6 @@ a {
     --section-padding: 64px 0;
   }
 
-
-
   /* Show hamburger, hide desktop links */
   .mobile-menu-btn {
     display: flex;
@@ -1123,10 +1208,13 @@ a {
     text-align: center;
   }
   .trust-logos {
-    gap: 32px;
+    gap: 28px;
+    align-items: center;
   }
   .trust-logo-img {
-    height: 36px;
+    height: auto;
+    max-height: 28px;
+    max-width: 120px;
   }
 
   /* Team */
@@ -1152,11 +1240,27 @@ a {
   }
 
   /* Case studies */
-  .case-studies-grid {
-    grid-template-columns: 1fr;
+  .case-card-v2-inner {
+    padding: 28px 24px;
+  }
+  .case-card-v2-metrics {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .case-metric-divider {
+    display: none;
+  }
+  .case-metric {
+    flex: 0 0 auto;
+    min-width: 100px;
   }
   .section-title.text-left,
   .section-subtitle.text-left {
+    text-align: center;
+  }
+  .cs-header {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -1215,13 +1319,20 @@ a {
     padding: 24px;
   }
 
-  .case-card {
-    padding: 24px;
+  .case-card-v2-inner {
+    padding: 24px 20px;
+  }
+  .case-card-v2-title {
+    font-size: 1.15rem;
   }
 
   .trust-logos {
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+  }
+  .trust-logo-img {
+    max-height: 24px;
+    max-width: 100px;
   }
 }
 
