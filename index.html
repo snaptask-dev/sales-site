@@ -40,30 +40,25 @@
     <!-- Animated gradient mesh background -->
     <div class="hero-gradient-mesh"></div>
 
-    <!-- Geometric accent lines -->
-    <svg class="hero-lines" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="xMidYMid slice">
-      <!-- Horizontal flowing lines -->
-      <path d="M-100 200 Q 200 180, 400 220 T 800 190 T 1200 230 T 1600 200" stroke="rgba(29,78,216,0.08)" stroke-width="1" fill="none">
-        <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M-100 200 Q 200 180, 400 220 T 800 190 T 1200 230 T 1600 200;M-100 210 Q 200 240, 400 190 T 800 230 T 1200 180 T 1600 210;M-100 200 Q 200 180, 400 220 T 800 190 T 1200 230 T 1600 200"/>
-      </path>
-      <path d="M-100 350 Q 300 320, 500 370 T 900 340 T 1300 380 T 1600 350" stroke="rgba(220,38,38,0.06)" stroke-width="1" fill="none">
-        <animate attributeName="d" dur="15s" repeatCount="indefinite" values="M-100 350 Q 300 320, 500 370 T 900 340 T 1300 380 T 1600 350;M-100 360 Q 300 390, 500 330 T 900 370 T 1300 330 T 1600 360;M-100 350 Q 300 320, 500 370 T 900 340 T 1300 380 T 1600 350"/>
-      </path>
-      <path d="M-100 480 Q 250 450, 450 500 T 850 470 T 1250 510 T 1600 480" stroke="rgba(29,78,216,0.05)" stroke-width="1" fill="none">
-        <animate attributeName="d" dur="18s" repeatCount="indefinite" values="M-100 480 Q 250 450, 450 500 T 850 470 T 1250 510 T 1600 480;M-100 490 Q 250 520, 450 460 T 850 500 T 1250 460 T 1600 490;M-100 480 Q 250 450, 450 500 T 850 470 T 1250 510 T 1600 480"/>
-      </path>
-      <!-- Scattered nodes -->
-      <circle cx="200" cy="200" r="3" fill="rgba(29,78,216,0.12)"><animate attributeName="opacity" dur="4s" repeatCount="indefinite" values="0.3;0.8;0.3"/></circle>
-      <circle cx="600" cy="350" r="2" fill="rgba(220,38,38,0.1)"><animate attributeName="opacity" dur="5s" repeatCount="indefinite" values="0.2;0.7;0.2"/></circle>
-      <circle cx="1000" cy="180" r="3" fill="rgba(29,78,216,0.1)"><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0.4;0.9;0.4"/></circle>
-      <circle cx="1300" cy="420" r="2" fill="rgba(220,38,38,0.08)"><animate attributeName="opacity" dur="4.5s" repeatCount="indefinite" values="0.3;0.6;0.3"/></circle>
-      <circle cx="400" cy="480" r="2" fill="rgba(29,78,216,0.08)"><animate attributeName="opacity" dur="7s" repeatCount="indefinite" values="0.2;0.5;0.2"/></circle>
-      <circle cx="850" cy="120" r="2.5" fill="rgba(255,255,255,0.06)"><animate attributeName="opacity" dur="5.5s" repeatCount="indefinite" values="0.3;0.7;0.3"/></circle>
-      <!-- Connecting line segments -->
-      <line x1="200" y1="200" x2="400" y2="220" stroke="rgba(29,78,216,0.06)" stroke-width="0.5"/>
-      <line x1="600" y1="350" x2="850" y2="120" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
-      <line x1="1000" y1="180" x2="1300" y2="420" stroke="rgba(220,38,38,0.04)" stroke-width="0.5"/>
+    <!-- Subtle grid pattern -->
+    <svg class="hero-grid-pattern" width="100%" height="100%">
+      <defs>
+        <pattern id="hero-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.6" fill="rgba(255,255,255,0.07)"/>
+        </pattern>
+        <radialGradient id="hero-dot-fade" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="white" stop-opacity="1"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="hero-dot-mask">
+          <rect width="100%" height="100%" fill="url(#hero-dot-fade)"/>
+        </mask>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hero-dots)" mask="url(#hero-dot-mask)"/>
     </svg>
+
+    <!-- Accent glow behind title area -->
+    <div class="hero-glow"></div>
 
     <!-- Gradient orbs for depth -->
     <div class="hero-orb hero-orb-1"></div>
@@ -176,7 +171,12 @@
           <div class="process-step fade-in-up">
             <div class="step-number">01</div>
             <div class="step-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path d="M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="12" r="1" fill="currentColor"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+                <circle cx="12" cy="12" r="1" fill="currentColor"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.3s" repeatCount="indefinite"/></circle>
+                <circle cx="16" cy="12" r="1" fill="currentColor"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+              </svg>
             </div>
             <div class="step-content">
               <h3>Initial consultation <span class="step-badge step-badge-green">Free</span></h3>
@@ -187,7 +187,14 @@
           <div class="process-step fade-in-up fade-delay-1">
             <div class="step-number">02</div>
             <div class="step-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="11" cy="11" r="3" stroke="currentColor" stroke-width="0.8" opacity="0.5">
+                  <animate attributeName="r" values="2;5;2" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+              </svg>
             </div>
             <div class="step-content">
               <h3>Deep dive &amp; scope</h3>
@@ -198,7 +205,12 @@
           <div class="process-step fade-in-up fade-delay-2">
             <div class="step-number">03</div>
             <div class="step-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 14l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10" stroke-dashoffset="10">
+                  <animate attributeName="stroke-dashoffset" values="10;0" dur="1.5s" repeatCount="indefinite"/>
+                </path>
+              </svg>
             </div>
             <div class="step-content">
               <h3>Initial deliverables</h3>
@@ -218,7 +230,14 @@
           <div class="process-step fade-in-up fade-delay-3">
             <div class="step-number">04</div>
             <div class="step-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" stroke-dasharray="56.5" stroke-dashoffset="56.5">
+                  <animate attributeName="stroke-dashoffset" values="56.5;0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+                  <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.5;0.7;1" dur="2s" repeatCount="indefinite"/>
+                </path>
+              </svg>
             </div>
             <div class="step-content">
               <h3>Complete deliverables</h3>
