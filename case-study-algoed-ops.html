@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: AlgoEd Internal Ops Automation — SnapTask.dev</title>
+  <meta name="description" content="How we built an AI-powered internal operations layer at AlgoEd using MCP, Manus, and Agent Skills to automate multi-step admin workflows.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="logo"><img src="assets/logo-snaptask.png" alt="snaptask.dev" class="logo-img"></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#case-studies">Case Studies</a>
+        <button class="btn btn-primary btn-sm btn-consultation" onclick="openConsultationModal()">Get a Free Consultation</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CASE STUDY HERO -->
+  <section class="cs-hero">
+    <div class="container">
+      <a href="/#case-studies" class="cs-back">&larr; All Case Studies</a>
+      <div class="cs-hero-header">
+        <img src="assets/logo-algoed.png" alt="AlgoEd" class="cs-client-logo">
+      </div>
+      <h1 class="cs-title">AI-Powered Internal Operations Automation</h1>
+      <p class="cs-subtitle">Built at AlgoEd — our founder's edtech platform serving 2,600+ schools across 50+ countries — an agent-driven ops layer using MCP, Manus, and Agent Skills that turns 30–60 minute manual workflows into single natural-language instructions.</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Project Type</span>
+          <span class="cs-meta-value">Internal Build</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Stack</span>
+          <span class="cs-meta-value">MCP, Manus, Agent Skills</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Key Result</span>
+          <span class="cs-meta-value">30–60 min → single instruction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY CONTENT -->
+  <article class="cs-content">
+    <div class="container cs-container">
+
+      <!-- The Problem -->
+      <section class="cs-section">
+        <h2>The Problem</h2>
+        <p>
+          As AlgoEd scaled to serve thousands of schools globally, internal operations became a bottleneck. Setting up data on the internal admin panel involved repetitive, multi-step API calls — creating records, linking entities, populating fields in a specific sequence. Two core issues made this unsustainable:
+        </p>
+        <ul>
+          <li><strong>Manual and error-prone.</strong> Each setup took 30–60 minutes of careful manual work, with mistakes requiring full restarts.</li>
+          <li><strong>Too variable for scripts.</strong> Setup sequences varied by context, making a single hard-coded script impractical — every variation needed its own logic.</li>
+          <li><strong>Built-in obsolescence.</strong> AI technology evolves monthly. Any rigid, bespoke tooling risked obsolescence within months if tightly coupled to a specific model or framework.</li>
+        </ul>
+      </section>
+
+      <!-- Design Philosophy -->
+      <section class="cs-section">
+        <h2>Design Philosophy</h2>
+        <p>
+          Rather than building rigid automation, we adopted a principle of dynamic flexibility — structure everything to be modular and swappable, right-size agent complexity to task complexity, and design for replaceability over permanence.
+        </p>
+        <div class="cs-approach-grid">
+          <div class="cs-approach-card">
+            <h3>Dynamic Flexibility</h3>
+            <p>Modular, swappable components. Avoid locking into any single model or framework so the system evolves with the technology.</p>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Right-Sized Agents</h3>
+            <p>Match agent complexity to task complexity. Manus for long-running multi-step tasks, Claude for simpler well-scoped operations.</p>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Don't Over-Engineer</h3>
+            <p>Ship working solutions fast. Accept that the best tool today may be replaced tomorrow — design for that reality.</p>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Security by Design</h3>
+            <p>Expose only what's necessary. Anonymize by default. Layer access controls at the application level.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Solution -->
+      <section class="cs-section">
+        <h2>The Solution</h2>
+        <p>
+          We built a four-layer architecture that lets an AI agent autonomously execute complex admin workflows:
+        </p>
+        <div class="cs-approach-grid">
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">01</span>
+            <h3>Designed API Pathways</h3>
+            <p>Identified and documented the exact API endpoints needed for each setup workflow. These pathways were purpose-built to be consumed by an AI agent, not a human operator.</p>
+          </div>
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">02</span>
+            <h3>Built an MCP Server</h3>
+            <p>Wrapped the API pathways in an MCP (Model Context Protocol) server — a structured interface that any compatible agent can call. The MCP layer handles authentication, request formatting, and response parsing.</p>
+          </div>
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">03</span>
+            <h3>Created Agent Skills</h3>
+            <p>Wrote detailed skills documents giving Manus the context it needs — what each endpoint does, required sequencing, edge cases, and validation rules. Skills serve as modular, updatable knowledge bases.</p>
+          </div>
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">04</span>
+            <h3>Deployed Manus as Executor</h3>
+            <p>Manus, armed with skills docs and MCP access, autonomously executes multi-step data setup sequences — handling branching logic, retries, and validation without human intervention.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Results -->
+      <section class="cs-section">
+        <h2>The Results</h2>
+        <p>The architecture transformed how AlgoEd handles internal operations:</p>
+        <div class="cs-results-grid">
+          <div class="cs-result-card">
+            <span class="cs-result-number">30–60 min</span>
+            <span class="cs-result-label">Manual work per task → single instruction</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">Zero Code</span>
+            <span class="cs-result-label">New workflows added via skills docs only</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">2,600+</span>
+            <span class="cs-result-label">Schools served across 50+ countries</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">Swappable</span>
+            <span class="cs-result-label">Any agent, model, or framework — MCP is the stable layer</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Takeaways -->
+      <section class="cs-section">
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li><strong>MCP as the universal interface layer.</strong> By standardizing on MCP, we can swap agents, models, and frameworks without rebuilding integrations. The MCP server is the stable surface; everything above it can change.</li>
+          <li><strong>Agent Skills as the knowledge layer.</strong> Instead of hard-coding business logic into prompts, skills documents serve as modular, updatable knowledge bases that any agent can consume.</li>
+          <li><strong>Right-size the agent to the task.</strong> Manus for complex multi-step workflows, Claude for simpler operations — avoiding unnecessary cost and latency.</li>
+          <li><strong>Build for replaceability, not permanence.</strong> In a landscape where models evolve monthly, the most durable architecture is one designed to be easily modified.</li>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="cs-section cs-cta-section">
+        <h2>Ready to see similar results?</h2>
+        <p>Book a free consultation and discover how SnapTask can transform your operations — or get your money back.</p>
+        <button class="btn btn-primary btn-consultation" onclick="openConsultationModal()">Get a Free Consultation</button>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="logo-text">snaptask<span class="logo-text-accent">.dev</span></span>
+        <p class="footer-tagline">AI consulting that delivers measurable impact.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/#team">Team</a>
+        <a href="/#process">Process</a>
+        <a href="/#case-studies">Case Studies</a>
+      </div>
+      <p class="footer-email">Contact us at <a href="mailto:inquiries@snaptask.dev">inquiries@snaptask.dev</a></p>
+      <p class="footer-copy">&copy; 2026 snaptask.dev. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- CONSULTATION MODAL -->
+  <div id="consultation-modal" class="modal-overlay" onclick="closeConsultationModal(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-header-title">Get a Free Consultation</span>
+        <button class="modal-close" onclick="closeConsultationModal()" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfn4YEgCmD-tdWSYMpizeVfMmcP9fQjSCOGKVL4hJzG3rDMHA/viewform?embedded=true"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+        >Loading...</iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openConsultationModal() {
+      document.getElementById('consultation-modal').classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeConsultationModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      document.getElementById('consultation-modal').classList.remove('modal-open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeConsultationModal();
+    });
+  </script>
+
+</body>
+</html>

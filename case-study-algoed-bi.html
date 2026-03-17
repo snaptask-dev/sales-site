@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: AlgoEd Secure AI Business Intelligence — SnapTask.dev</title>
+  <meta name="description" content="How we built a secure AI-powered business intelligence system at AlgoEd with anonymized data access and a human-controlled de-anonymization layer.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="logo"><img src="assets/logo-snaptask.png" alt="snaptask.dev" class="logo-img"></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#case-studies">Case Studies</a>
+        <button class="btn btn-primary btn-sm btn-consultation" onclick="openConsultationModal()">Get a Free Consultation</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CASE STUDY HERO -->
+  <section class="cs-hero">
+    <div class="container">
+      <a href="/#case-studies" class="cs-back">&larr; All Case Studies</a>
+      <div class="cs-hero-header">
+        <img src="assets/logo-algoed.png" alt="AlgoEd" class="cs-client-logo">
+      </div>
+      <h1 class="cs-title">Secure AI Business Intelligence with Anonymized Data</h1>
+      <p class="cs-subtitle">Built at AlgoEd — our founder's edtech platform serving 2,600+ schools across 50+ countries — an AI-powered BI and research system that gives agents full analytical access to sensitive datasets while ensuring PII never leaves a controlled environment.</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Project Type</span>
+          <span class="cs-meta-value">Internal Build</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Stack</span>
+          <span class="cs-meta-value">MCP, Manus, Claude</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Key Result</span>
+          <span class="cs-meta-value">Full BI with zero PII exposure</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY CONTENT -->
+  <article class="cs-content">
+    <div class="container cs-container">
+
+      <!-- The Problem -->
+      <section class="cs-section">
+        <h2>The Problem</h2>
+        <p>
+          AlgoEd needed AI agents to perform business intelligence analysis, data exploration, and business development research across internal datasets. The challenge: those datasets contained sensitive and personally identifiable information — student records, school contacts, revenue data — that could not be exposed to external AI services without proper safeguards.
+        </p>
+        <ul>
+          <li><strong>PII everywhere.</strong> Names, emails, phone numbers, and institutional details were woven throughout every dataset the BI agent needed to access.</li>
+          <li><strong>Full access required.</strong> Restricting which columns or tables the agent could see would cripple its analytical power — cohort breakdowns, churn analysis, and engagement metrics all required the full schema.</li>
+          <li><strong>No room for leaks.</strong> A single data breach exposing student PII would be catastrophic for trust with partner universities and schools.</li>
+        </ul>
+      </section>
+
+      <!-- The Solution -->
+      <section class="cs-section">
+        <h2>The Solution</h2>
+        <p>
+          The core insight: rather than limiting what the AI can analyze, anonymize the data at the source and build a separate human-controlled de-anonymization layer. The agent gets full analytical power; humans retain full identity control.
+        </p>
+        <div class="cs-approach-grid">
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">01</span>
+            <h3>Security Audit</h3>
+            <p>Before any implementation, a thorough security audit determined the safest way to expose internal data to an AI agent. The key question: how do you give an agent enough data access to be useful, without creating a data breach vector?</p>
+          </div>
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">02</span>
+            <h3>MCP with Read-Only, Anonymized Access</h3>
+            <p>Built an MCP server providing read-only access to internal databases. All columns containing identifiable information are anonymized before exposure — names, emails, and phone numbers replaced with anonymized identifiers. The agent gets full structural access (all columns, all relationships) but can never see actual identities.</p>
+          </div>
+          <div class="cs-approach-card">
+            <span class="cs-approach-num">03</span>
+            <h3>Internal De-Anonymization Layer</h3>
+            <p>A separate algorithm within AlgoEd's admin panel — accessible only to users with the correct permissions — maps anonymized identifiers back to real identities. This creates a clear separation of concerns between what the AI can see and what humans can act on.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section class="cs-section">
+        <h2>Architecture: Separation of Concerns</h2>
+        <div class="cs-approach-grid">
+          <div class="cs-approach-card">
+            <h3>AI Agent Layer</h3>
+            <ul>
+              <li>Read-only database access</li>
+              <li>All PII anonymized</li>
+              <li>Full structural &amp; analytical access</li>
+              <li>Powered by MCP + Manus</li>
+            </ul>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Human-Only Layer</h3>
+            <ul>
+              <li>Permission-gated admin panel</li>
+              <li>De-anonymization algorithm</li>
+              <li>Maps anonymized IDs → real identities</li>
+              <li>Accessible only to authorized personnel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Results -->
+      <section class="cs-section">
+        <h2>The Results</h2>
+        <p>The BI agent can now run sophisticated analyses across the full dataset without ever accessing identifiable information:</p>
+        <div class="cs-results-grid">
+          <div class="cs-result-card">
+            <span class="cs-result-number">Zero PII</span>
+            <span class="cs-result-label">Exposed to AI agents</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">Full Dataset</span>
+            <span class="cs-result-label">Analytical access across all tables &amp; columns</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">2,600+</span>
+            <span class="cs-result-label">Schools analyzed across 50+ countries</span>
+          </div>
+          <div class="cs-result-card">
+            <span class="cs-result-number">On-Demand</span>
+            <span class="cs-result-label">Cohort, churn, revenue &amp; BD research</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Takeaways -->
+      <section class="cs-section">
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li><strong>Security through architecture, not restriction.</strong> Rather than limiting what the AI can analyze, we anonymized data at the source and built a separate human-controlled de-anonymization layer.</li>
+          <li><strong>MCP as the universal interface.</strong> Standardizing on MCP means the anonymization and access controls are enforced at the connectivity layer — independent of which agent or model is running above it.</li>
+          <li><strong>Right-size the agent.</strong> Manus handles complex multi-source BI analysis; Claude handles simpler single queries and routine data pulls — avoiding unnecessary cost.</li>
+          <li><strong>Build for replaceability.</strong> Every component is designed to be swapped as models and frameworks evolve monthly.</li>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="cs-section cs-cta-section">
+        <h2>Ready to see similar results?</h2>
+        <p>Book a free consultation and discover how SnapTask can transform your operations — or get your money back.</p>
+        <button class="btn btn-primary btn-consultation" onclick="openConsultationModal()">Get a Free Consultation</button>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="logo-text">snaptask<span class="logo-text-accent">.dev</span></span>
+        <p class="footer-tagline">AI consulting that delivers measurable impact.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/#team">Team</a>
+        <a href="/#process">Process</a>
+        <a href="/#case-studies">Case Studies</a>
+      </div>
+      <p class="footer-email">Contact us at <a href="mailto:inquiries@snaptask.dev">inquiries@snaptask.dev</a></p>
+      <p class="footer-copy">&copy; 2026 snaptask.dev. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- CONSULTATION MODAL -->
+  <div id="consultation-modal" class="modal-overlay" onclick="closeConsultationModal(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-header-title">Get a Free Consultation</span>
+        <button class="modal-close" onclick="closeConsultationModal()" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfn4YEgCmD-tdWSYMpizeVfMmcP9fQjSCOGKVL4hJzG3rDMHA/viewform?embedded=true"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+        >Loading...</iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openConsultationModal() {
+      document.getElementById('consultation-modal').classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeConsultationModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      document.getElementById('consultation-modal').classList.remove('modal-open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeConsultationModal();
+    });
+  </script>
+
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: AlgoEd — SnapTask.dev</title>
-  <meta name="description" content="How SnapTask automated AlgoEd's entire operations with a custom AI-driven MCP system featuring human-in-the-loop safeguards.">
+  <title>Project: AlgoEd GTM Pipeline — SnapTask.dev</title>
+  <meta name="description" content="How we built an end-to-end automated outbound lead generation pipeline with AI-powered discovery, enrichment, and deliverability optimization at AlgoEd.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="case-study.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,20 +32,20 @@
       <div class="cs-hero-header">
         <img src="assets/logo-algoed.png" alt="AlgoEd" class="cs-client-logo">
       </div>
-      <h1 class="cs-title">Automating an Entire Operations Role with AI at AlgoEd</h1>
-      <p class="cs-subtitle">How SnapTask replaced a full-time operations function with a custom AI-driven MCP system — complete with human-in-the-loop security — and built automated sales outreach and enrichment pipelines.</p>
+      <h1 class="cs-title">End-to-End GTM Outbound Lead Generation Pipeline</h1>
+      <p class="cs-subtitle">Built at AlgoEd — our founder's competitive programming platform partnering with Harvard, Stanford, MIT, and other leading institutions — this fully automated pipeline handles mass-scale lead discovery, enrichment, personalization, and deliverability optimization.</p>
       <div class="cs-meta">
         <div class="cs-meta-item">
-          <span class="cs-meta-label">Industry</span>
-          <span class="cs-meta-value">EdTech / Academic Competitions</span>
+          <span class="cs-meta-label">Project Type</span>
+          <span class="cs-meta-value">Internal Build</span>
         </div>
         <div class="cs-meta-item">
-          <span class="cs-meta-label">Timeline</span>
-          <span class="cs-meta-value">[X weeks]</span>
+          <span class="cs-meta-label">AI Token Cost</span>
+          <span class="cs-meta-value">&lt;$10K</span>
         </div>
         <div class="cs-meta-item">
-          <span class="cs-meta-label">Key Result</span>
-          <span class="cs-meta-value">Full operations role automated</span>
+          <span class="cs-meta-label">Pipeline in Year 1</span>
+          <span class="cs-meta-value">$1M+ revenue</span>
         </div>
       </div>
     </div>
@@ -57,48 +57,62 @@
 
       <!-- The Challenge -->
       <section class="cs-section">
-        <h2>The Challenge</h2>
+        <h2>The Problem</h2>
         <p>
-          AlgoEd is a platform for academic competitions that connects students, educators, and institutions. As the platform grew, the operational demands of managing competitions, communications, partner outreach, and data management became overwhelming for the small team.
-        </p>
-        <p>
-          Key pain points included:
+          Scaling outbound lead generation at AlgoEd presented three core challenges that made manual approaches unsustainable:
         </p>
         <ul>
-          <li>A full-time operations role dedicated almost entirely to repetitive, manual tasks</li>
-          <li>Sales outreach that was slow, unstructured, and lacked proper lead enrichment</li>
-          <li>Competition logistics — scheduling, notifications, scoring — requiring constant human oversight</li>
-          <li>No scalable way to grow without proportionally increasing headcount</li>
+          <li><strong>Unreliable lead sources.</strong> Available databases lacked accurate, up-to-date contact information, making quality lead discovery difficult at scale.</li>
+          <li><strong>Risky AI personalization.</strong> Standard AI personalization often produces hallucinated or generic content ("slop"), diluting the core offer message.</li>
+          <li><strong>Poor deliverability.</strong> Without careful optimization, mass outreach gets flagged as spam, wasting the entire effort.</li>
         </ul>
       </section>
 
-      <!-- The Approach -->
+      <!-- The Solution -->
       <section class="cs-section">
-        <h2>Our Approach</h2>
+        <h2>The Solution</h2>
         <p>
-          SnapTask worked closely with AlgoEd's leadership to understand every operational workflow before designing a comprehensive automation strategy. The engagement unfolded in four phases:
+          The pipeline was designed around one key principle: silo each problem into a clear stage, and give every stage a generation layer paired with a validation layer. This ensures bad data is caught and corrected before it moves downstream. The full pipeline flows through three stages:
         </p>
 
         <div class="cs-approach-grid">
           <div class="cs-approach-card">
             <span class="cs-approach-num">01</span>
-            <h3>Operations Mapping</h3>
-            <p>We documented every task the operations role handled — from daily admin to competition logistics — categorizing each by complexity, frequency, and automation potential.</p>
+            <h3>Contact Discovery</h3>
+            <p>Build a verified list of business email contacts from scratch. A large dataset establishes a source of truth for name-to-email pairings. AI-powered search APIs scan public sources to find relevant staff names, then reverse-engineer their email addresses against the source of truth. Every derived email is validated — contacts that fail or match exclusion criteria are removed.</p>
           </div>
           <div class="cs-approach-card">
             <span class="cs-approach-num">02</span>
-            <h3>Custom MCP Architecture</h3>
-            <p>We designed and built a custom Model Context Protocol (MCP) system that could autonomously handle operations tasks while maintaining built-in human-in-the-loop security for sensitive actions.</p>
+            <h3>Data Enrichment</h3>
+            <p>Gather personalization-ready information about each verified contact. AI performs targeted research scoped to exactly what the outreach copy needs — not open-ended. A waterfall mechanism selects the best available enrichment type for each contact in priority order, and a dedicated validation layer reviews all data for hallucinations and common errors before it moves forward.</p>
           </div>
           <div class="cs-approach-card">
             <span class="cs-approach-num">03</span>
-            <h3>Sales Automation &amp; Enrichment</h3>
-            <p>We built AI-powered sales outreach pipelines that automatically identified, enriched, and engaged prospective partners and institutions — replacing manual research and cold outreach.</p>
+            <h3>Deliverability Optimization</h3>
+            <p>Combine personalization with a proven template structure and optimize for inbox placement. AI never has full control over the copy — 50% is dynamic prospect-specific content from enriched data, and 50% is pre-written, tested copy that preserves the core offer. The fixed portion is then optimized to avoid spam filters and maximize deliverability.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Design Principles -->
+      <section class="cs-section">
+        <h2>Key Design Principles</h2>
+        <div class="cs-approach-grid">
+          <div class="cs-approach-card">
+            <h3>Siloed Architecture</h3>
+            <p>Each stage — discovery, enrichment, deliverability — operates independently with clear inputs and outputs, making the pipeline modular and debuggable.</p>
           </div>
           <div class="cs-approach-card">
-            <span class="cs-approach-num">04</span>
-            <h3>Deployment &amp; Safeguards</h3>
-            <p>We deployed the system with layered security measures, ensuring the AI could operate autonomously on routine tasks while flagging edge cases for human review. Comprehensive monitoring ensured reliability.</p>
+            <h3>Generation + Validation</h3>
+            <p>Every AI-powered step includes a validation layer that catches errors before they propagate downstream.</p>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Constrained AI</h3>
+            <p>AI operates within tight parameters rather than open-ended prompts, dramatically reducing hallucination risk.</p>
+          </div>
+          <div class="cs-approach-card">
+            <h3>Deterministic Control</h3>
+            <p>The 50/50 hybrid model ensures the core message is never compromised by AI variability.</p>
           </div>
         </div>
       </section>
@@ -106,41 +120,25 @@
       <!-- The Results -->
       <section class="cs-section">
         <h2>The Results</h2>
-        <p>The transformation was dramatic and immediate:</p>
+        <p>The pipeline delivered outsized returns on a minimal investment:</p>
         <div class="cs-results-grid">
           <div class="cs-result-card">
-            <span class="cs-result-number">1 FTE</span>
-            <span class="cs-result-label">Entire operations role fully automated</span>
+            <span class="cs-result-number">$1M+</span>
+            <span class="cs-result-label">Pipeline revenue in year 1</span>
           </div>
           <div class="cs-result-card">
-            <span class="cs-result-number">[X]x</span>
-            <span class="cs-result-label">Increase in sales outreach volume</span>
+            <span class="cs-result-number">&lt;$10K</span>
+            <span class="cs-result-label">Total AI token cost</span>
           </div>
           <div class="cs-result-card">
-            <span class="cs-result-number">[X]%</span>
-            <span class="cs-result-label">Reduction in operational overhead</span>
+            <span class="cs-result-number">100x+</span>
+            <span class="cs-result-label">Return on investment</span>
           </div>
           <div class="cs-result-card">
-            <span class="cs-result-number">24/7</span>
-            <span class="cs-result-label">Autonomous operations with human-in-the-loop safety</span>
+            <span class="cs-result-number">End-to-End</span>
+            <span class="cs-result-label">Fully automated from discovery to send</span>
           </div>
         </div>
-      </section>
-
-      <!-- Testimonial -->
-      <section class="cs-section">
-        <blockquote class="cs-testimonial">
-          <p>"SnapTask completely automated our entire operations role with a custom AI-driven MCP system. What once required a full-time team member now runs autonomously with human-in-the-loop safeguards. They also built us incredible sales outreach automation that transformed how we acquire partners."</p>
-          <footer>
-            <div class="cs-testimonial-author">
-              <div class="cs-testimonial-avatar"></div>
-              <div>
-                <strong>[Client Name]</strong>
-                <span>[Position], AlgoEd</span>
-              </div>
-            </div>
-          </footer>
-        </blockquote>
       </section>
 
       <!-- CTA -->
